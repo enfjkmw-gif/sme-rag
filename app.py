@@ -173,3 +173,29 @@ if st.button('답변 받기', type='primary', use_container_width=True):
 
         st.subheader('✅ AI 답변')
         st.markdown(answer)
+
+        # 만족도 확인 및 전문가 연결
+        st.divider()
+        st.write("💬 이 답변이 도움이 됐나요?")
+        col1, col2 = st.columns(2)
+
+        with col1:
+            if st.button("✅ 도움됐어요", use_container_width=True):
+                st.success("감사합니다! 더 궁금한 점이 있으면 언제든지 질문해주세요.")
+
+        with col2:
+            if st.button("❌ 더 자세한 상담이 필요해요", use_container_width=True):
+                st.warning("전문가 심층 상담 게시판으로 연결해드릴게요.")
+                st.info("""
+**비즈니스지원단 전문가 심층 상담 신청**
+
+AI 답변으로 해결되지 않은 경우, 아래 게시판에 질문을 남기시면
+비즈니스지원단 전문 상담위원이 직접 답변해드립니다.
+
+- 🕐 운영시간: 평일 09:00 ~ 18:00
+                """)
+                st.link_button(
+                    "📋 심층 상담 게시판 바로가기",
+                    "https://www.smes.go.kr/bizlink/problem/problemList.do#a",
+                    use_container_width=True
+                )
