@@ -35,7 +35,7 @@ def clean_text(text):
 @st.cache_resource
 def load_data_and_model():
     df = pd.read_csv('data.csv', encoding='utf-8')
-    df = df[['번호', '지원분야', '제목', '게시글', '대표답변']].copy()
+    df = df[['연번', '지원분야', '제목', '게시글', '대표답변']].copy()
     df = df.dropna(subset=['게시글', '대표답변']).reset_index(drop=True)
     df['게시글_정제']   = df['게시글'].apply(clean_text)
     df['대표답변_정제'] = df['대표답변'].apply(clean_text)
